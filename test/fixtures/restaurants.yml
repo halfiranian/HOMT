@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  address: MyText
+  contact_details: MyText
+  longitude: 1
+  latitude: 1
+  tips: false
+  moderated: false
+  correspondence: MyText
+  chain_id: 1
+
+two:
+  name: MyString
+  address: MyText
+  contact_details: MyText
+  longitude: 1
+  latitude: 1
+  tips: false
+  moderated: false
+  correspondence: MyText
+  chain_id: 1

@@ -1,0 +1,53 @@
+<%= form_for(@restaurant) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_details %><br />
+    <%= f.text_area :contact_details %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :tips %><br />
+    <%= f.check_box :tips %>
+  </div>
+  <div class="field">
+    <%= f.label :moderated %><br />
+    <%= f.check_box :moderated %>
+  </div>
+  <div class="field">
+    <%= f.label :correspondence %><br />
+    <%= f.text_area :correspondence %>
+  </div>
+  <div class="field">
+    <%= f.label :chain_id %><br />
+    <%= f.text_field :chain_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
