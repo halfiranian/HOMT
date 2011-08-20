@@ -1,0 +1,5 @@
+/Users/jamess/.rvm/rubies/ruby-1.9.2-p290/bin/ruby extconf.rb 
+creating Makefile
+
+make
+Makefile:148: *** target pattern contains no `%'.  Stop.
