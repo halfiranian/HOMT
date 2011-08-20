@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.xml
   def index
     @restaurants = Restaurant.all
+    @json_map = Restaurant.all.to_gmaps4rails
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.xml
   def show
     @restaurant = Restaurant.find(params[:id])
+    @json_map = @restaurant.to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb

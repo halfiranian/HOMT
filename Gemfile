@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.10'
-gem 'geokit'
 gem 'devise'
+gem 'gmaps4rails'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => 'rails-3.0'
 
 # Bundle edge Rails instead:
