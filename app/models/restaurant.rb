@@ -1,9 +1,12 @@
 class Restaurant < ActiveRecord::Base
-  acts_as_gmappable
+  acts_as_gmappable :process_geocoding => false
   
-  def gmaps4rails_address
-    #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-    "#{self.address}, UK" 
+  geocoded_by :address_uk
+  
+  after_validation :geocode
+  
+  def address_uk
+    [address, " UK"].compact.join(', ')
   end
   
   def gmaps4rails_infowindow

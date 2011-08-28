@@ -1,77 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div id="restaurant" class="<%= "#{@restaurant.tips ? 'yestips' : 'notips'}" %>">
 
-<p>
-  <b>Name:</b>
-  <%= @restaurant.name %>
-</p>
+	<h1 class="name"><%= @restaurant.name %></h1>
 
-<p>
-  <b>Address:</b>
-  <%= @restaurant.address %>
-</p>
+	<p class="address">
+	  <%= @restaurant.address %>
+	</p>
 
-<p>
-  <b>Contact details:</b>
-  <%= @restaurant.contact_details %>
-</p>
+	<p class="contact">
+	  <%= @restaurant.contact_details %>
+	</p>
 
-<p>
-  <b>Longitude:</b>
-  <%= @restaurant.longitude %>
-</p>
+	<p class="correspondence">
+	  <%= @restaurant.correspondence %>
+	</p>
 
-<p>
-  <b>Latitude:</b>
-  <%= @restaurant.latitude %>
-</p>
+	<h3>Nearby restaurants</h3>
+	<ul>
+		<% for restaurant in @restaurant.nearbys(2) %>
+			<li><%= link_to restaurant.name, restaurant, :class => "#{restaurant.tips ? 'yestips' : 'notips'}" %> (<%= restaurant.distance.round(2) %> miles)</li>
+		<% end %>
+	</ul>
 
-<p>
-  <b>Tips:</b>
-  <%= @restaurant.tips %>
-</p>
+	<div class="restaurant-map">
+		<%= gmaps4rails(@json_map) %>	
+	</div>
 
-<p>
-  <b>Moderated:</b>
-  <%= @restaurant.moderated %>
-</p>
-
-<p>
-  <b>Correspondence:</b>
-  <%= @restaurant.correspondence %>
-</p>
-
-<p>
-  <b>Chain:</b>
-  <%= @restaurant.chain_id %>
-</p>
-
-<div>Mapple
-	<%= gmaps4rails(@json_map) %>
+	<div class="comments">
+		<%= render 'disqus' %>
+	</div>
 	
-</div>
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-var disqus_developer = 1; // this would set it to developer mode
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'handsoffourtips'; // required: replace example with your forum shortname
-
-    // The following are highly recommended additional parameters. Remove the slashes in front to use.
-    // var disqus_identifier = 'unique_dynamic_id_1234';
-    // var disqus_url = 'http://example.com/permalink-to-page.html';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
 Configuration variables
 
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
+
+</div>

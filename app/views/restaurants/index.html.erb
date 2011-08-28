@@ -9,39 +9,15 @@
 <% end %>
 <h1>Listing restaurants</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Contact details</th>
-    <th>Longitude</th>
-    <th>Latitude</th>
-    <th>Tips</th>
-    <th>Moderated</th>
-    <th>Correspondence</th>
-    <th>Chain</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @restaurants.each do |restaurant| %>
-  <tr>
-    <td><%= restaurant.name %></td>
-    <td><%= restaurant.address %></td>
-    <td><%= restaurant.contact_details %></td>
-    <td><%= restaurant.longitude %></td>
-    <td><%= restaurant.latitude %></td>
-    <td><%= restaurant.tips %></td>
-    <td><%= restaurant.moderated %></td>
-    <td><%= restaurant.correspondence %></td>
-    <td><%= restaurant.chain_id %></td>
-    <td><%= link_to 'Show', restaurant %></td>
-    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-    <td><%= link_to 'Destroy', restaurant, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<%= form_tag restaurants_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
 <% end %>
-</table>
+
+
+<%= render 'list' %>
 
 <div style="width: 400px;">Mapple
 	<%= gmaps4rails(@json_map) %>

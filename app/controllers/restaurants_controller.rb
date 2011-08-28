@@ -2,8 +2,14 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.xml
   def index
-    @restaurants = Restaurant.all
-    @json_map = Restaurant.all.to_gmaps4rails
+    if params[:search].present?
+      uksearch = params[:search] + ", UK"
+      @restaurants = Restaurant.near(uksearch, 5, :order => :distance)
+      @json_map = @restaurants.to_gmaps4rails
+    else 
+      @restaurants = Restaurant.all
+      @json_map = Restaurant.all.to_gmaps4rails
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,7 +33,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/new.xml
   def new
     @restaurant = Restaurant.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @restaurant }
@@ -43,6 +49,11 @@ class RestaurantsController < ApplicationController
   # POST /restaurants.xml
   def create
     @restaurant = Restaurant.new(params[:restaurant])
+#    if verify_recaptcha
+#      redirect_to "restaurants"
+#    else
+#      render 'new'
+#    end
 
     respond_to do |format|
       if @restaurant.save

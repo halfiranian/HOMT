@@ -1,0 +1,19 @@
+<% if params[:search].present? %>
+
+<ul>
+<% for restaurant in @restaurants %>
+  <li><%= link_to restaurant.name, restaurant, :class => "policy-#{restaurant.tips}" %> (<%= restaurant.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+
+
+<% else %>
+
+<ul>
+<% for restaurant in @restaurants %>
+  <li><%= link_to restaurant.name, restaurant, :class => "policy-#{restaurant.tips}" %> (<%= restaurant.address %>) <%= restaurant.tips %></li>
+<% end %>
+</ul>
+
+
+<% end %>

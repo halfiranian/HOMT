@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mytips</title>
-  <%= stylesheet_link_tag :all %>
+  <title><%= title %></title>
+  <%= render 'layouts/stylesheets' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
   <%= yield :head %> 
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<div class="container">
+	<header>
+		<nav class="round">
+			<ul>
+				<li>Header link 1</li>
+				<li>Header link 2</li>
+			</ul>
+		</nav>
+	</header>
+	
+	<section class="round">
+		<% flash.each do |key, value| %>
+	      <div class="flash <%= key %>"><%= value %></div>
+	    <% end %>
+	
+		<%= yield %>
+	
+	</section>
 
-<%= yield %>
 
 	<footer>
 		<%= yield :scripts %>
 	</footer>
+</div>
 </body>
 </html>
