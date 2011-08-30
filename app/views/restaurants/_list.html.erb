@@ -2,7 +2,7 @@
 
 <ul>
 <% for restaurant in @restaurants %>
-  <li><%= link_to restaurant.name, restaurant, :class => "policy-#{restaurant.tips}" %> (<%= restaurant.distance.round(2) %> miles)</li>
+  <li><%= link_to restaurant.name, restaurant, :class => "#{restaurant.tips ? 'yestips' : 'notips'}" %> (<%= restaurant.distance.round(2) %> miles)</li>
 <% end %>
 </ul>
 
@@ -11,7 +11,7 @@
 
 <ul>
 <% for restaurant in @restaurants %>
-  <li><%= link_to restaurant.name, restaurant, :class => "policy-#{restaurant.tips}" %> (<%= restaurant.address %>) <%= restaurant.tips %></li>
+  <li><%= link_to restaurant.name, restaurant, :class => "#{restaurant.tips ? 'yestips' : 'notips'}" %> (<%= restaurant.address %>) <%= restaurant.tips %></li>
 <% end %>
 </ul>
 

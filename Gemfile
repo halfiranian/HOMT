@@ -7,6 +7,7 @@ gem 'geocoder'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => 'rails-3.0'
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem "RedCloth", "~> 4.2.8"
+gem "jquery-rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

@@ -19,9 +19,11 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1
   # GET /restaurants/1.xml
+  
   def show
     @restaurant = Restaurant.find(params[:id])
-    @json_map = @restaurant.to_gmaps4rails
+    # @json_map = @restaurant.nearbys(2).to_gmaps4rails
+    @json_map = Restaurant.near(@restaurant, 2).to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb

@@ -10,9 +10,9 @@
 	  <%= @restaurant.contact_details %>
 	</p>
 
-	<p class="correspondence">
-	  <%= @restaurant.correspondence %>
-	</p>
+	<div class="correspondence" style="display:none;">
+	  <%= raw RedCloth.new(@restaurant.correspondence).to_html %>
+	</div>
 
 	<h3>Nearby restaurants</h3>
 	<ul>
