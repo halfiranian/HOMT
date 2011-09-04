@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821205902) do
+ActiveRecord::Schema.define(:version => 20110830211327) do
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(:version => 20110821205902) do
     t.integer  "chain_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "longitude",       :limit => 255
-    t.float    "latitude",        :limit => 255
     t.boolean  "gmaps"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "users", :force => true do |t|

@@ -2,6 +2,10 @@ Mytips::Application.routes.draw do
   devise_for :users
 
   resources :restaurants
+  
+  resources :pages
+  
+ # match 'about', to: => 'pages/1'
 
   root :to => "restaurants#index"
   # The priority is based upon order of creation:

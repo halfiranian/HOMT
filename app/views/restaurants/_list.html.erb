@@ -11,7 +11,7 @@
 
 <ul>
 <% for restaurant in @restaurants %>
-  <li><%= link_to restaurant.name, restaurant, :class => "#{restaurant.tips ? 'yestips' : 'notips'}" %> (<%= restaurant.address %>) <%= restaurant.tips %></li>
+  <li><%= link_to restaurant.name, restaurant, :class => "#{restaurant.tips ? 'yestips' : 'notips'}", :title => restaurant.address %></li>
 <% end %>
 </ul>
 

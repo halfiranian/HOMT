@@ -2,6 +2,9 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.xml
   def index
+    
+    @pages = Page.all
+    
     if params[:search].present?
       uksearch = params[:search] + ", UK"
       @restaurants = Restaurant.near(uksearch, 5, :order => :distance)
@@ -21,6 +24,9 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.xml
   
   def show
+    
+    @pages = Page.all
+    
     @restaurant = Restaurant.find(params[:id])
     # @json_map = @restaurant.nearbys(2).to_gmaps4rails
     @json_map = Restaurant.near(@restaurant, 2).to_gmaps4rails

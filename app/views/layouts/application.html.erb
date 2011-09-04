@@ -8,13 +8,10 @@
   <%= yield :head %> 
 </head>
 <body>
-<div class="container">
+<div id="container">
 	<header>
 		<nav class="round">
-			<ul>
-				<li>Header link 1</li>
-				<li>Header link 2</li>
-			</ul>
+			<%= nav %>
 		</nav>
 	</header>
 	
@@ -29,6 +26,7 @@
 
 
 	<footer>
+		<%= render 'layouts/footer' %>
 		<%= yield :scripts %>
 	</footer>
 </div>

@@ -1,3 +1,6 @@
+
+<div id="content">
+
 <div id="restaurant" class="<%= "#{@restaurant.tips ? 'yestips' : 'notips'}" %>">
 
 	<h1 class="name"><%= @restaurant.name %></h1>
@@ -34,5 +37,7 @@ Configuration variables
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
+
+</div>
 
 </div>

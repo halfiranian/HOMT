@@ -1,0 +1,7 @@
+<ul id="menu">
+	<li><%= link_to "Home", root_url %></li>
+<% @pages.each do |page| %>
+    <li><%= link_to page.title, page, :title => page.title %></li>
+<% end %>
+	<li><%= link_to "Add Restaurant", new_restaurant_path %>
+</ul>
