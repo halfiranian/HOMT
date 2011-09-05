@@ -20,7 +20,7 @@
 	<h3>Nearby restaurants</h3>
 	<ul>
 		<% for restaurant in @restaurant.nearbys(2) %>
-			<li><%= link_to restaurant.name, restaurant, :class => "#{restaurant.tips ? 'yestips' : 'notips'}" %> (<%= restaurant.distance.round(2) %> miles)</li>
+			<li><%= link_to restaurant.name, restaurant, :class => "#{restaurant.tips ? 'yestips' : 'notips'}" %> (<%= restaurant.distance.to_f.round(2) %> miles)</li>
 		<% end %>
 	</ul>
 
